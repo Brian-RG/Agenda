@@ -2,7 +2,7 @@ import java.util.*;
 public class Agenda {
   private Contacto[] contactos;
   private int numContactos;
-
+  //This part was made by Juan Carlos Quirino
   public Agenda () {
     this(10);
   }
