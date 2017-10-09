@@ -1,8 +1,14 @@
+
+package Principal;
+import java.awt.Dimension;
 import java.util.*;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 public class Agenda {
   private Contacto[] contactos;
   private int numContactos;
-  //This part was made by Juan Carlos Quirino
+
   public Agenda () {
     this(10);
   }
@@ -10,6 +16,8 @@ public class Agenda {
     this.contactos = new Contacto[size];
     this.numContactos = 0;
   }
+  //Falta agregar por apellido alfabeticamente
+    //TO DO: Eliminar espacios en el apellido
   public void agregarContacto (Contacto newContacto) {
     //Al mismo array le hace una copia de si mismo y se la pasa con 1 mas de largo
     if (this.contactos.length == this.numContactos) {
@@ -74,16 +82,47 @@ public class Agenda {
     return true;
   }
   public void buscarContacto (String myString) {
+      String cont="";
+      
     for (int i = 0; i < this.numContactos; i++) {
-      if (myString.equals("")) {System.out.println(this.contactos[i]); }
+      if (myString.equals("")) {cont+=this.contactos[i]+"\n \n"; }
       else {
         if (this.contactos[i].contiene(myString)) {
-          System.out.println(this.contactos[i]);
+          cont+=this.contactos[i] + "\n \n";
         }
       }
     }
+        JTextArea textArea = new JTextArea(cont);
+        textArea.setEditable(false);
+        JScrollPane scrollPane = new JScrollPane(textArea);  
+        scrollPane.setPreferredSize( new Dimension( 500, 500 ) );
+        JOptionPane.showMessageDialog(null, scrollPane,"Lista de contactos",JOptionPane.INFORMATION_MESSAGE);
+    
   }
   public static void main(String[] args){
+    Agenda test = new Agenda();
+    //(String nom, String ape, String cat, String cor, String tel, String cel, String dir, String nota){
+    test.agregarContacto(new Contacto("AAA","Quirin","","","","","", ""));
+    test.agregarContacto(new Contacto("AAA","Quirinonososososo","","","","","", ""));
+    test.agregarContacto(new Contacto("AAA","Quirino","","","","","", ""));
+    test.agregarContacto(new Contacto("AAA","Quiri","","","","","", ""));
 
+
+
+    /*
+    test.agregarContacto(new Contacto("D","Quirino","","","","","", ""));
+    test.agregarContacto(new Contacto("C","C","","","","","", ""));
+    test.agregarContacto(new Contacto("B","Quirinos","","","","","", ""));
+    test.agregarContacto(new Contacto("AB","AAA","","","","","", ""));
+    test.agregarContacto(new Contacto("C","ABA","","","","","", ""));
+    test.agregarContacto(new Contacto("B","AAB","","","","","", ""));
+    test.agregarContacto(new Contacto("A","ABC","","","","","", ""));
+    test.agregarContacto(new Contacto("AC","AAA","","","","","", ""));
+    test.agregarContacto(new Contacto("A","X","","","","","", ""));
+    test.agregarContacto(new Contacto("BBB","BBB","","","","","", ""));
+    test.agregarContacto(new Contacto("A","G","","","","","", ""));
+    */
+    System.out.println(test.numContactos);
+    test.buscarContacto("quir");
   }
 }
