@@ -1,9 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package Principal;
+//Juan Carlos Quirino Carrasco - A01632369
+//Brian Reyes Gálvez - A01633401
+//Programacion orientada a objetos
+//Proyecto Parcial
 import javax.swing.*;
 
 public class Principal {

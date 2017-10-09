@@ -1,4 +1,7 @@
-package agenda;
+//Juan Carlos Quirino Carrasco - A01632369
+//Brian Reyes Gálvez - A01633401
+//Programacion orientada a objetos
+//Proyecto Parcial
 public class Contacto {
     private String nombre, apellidos, categoria, correo, telefono, celular, direccion, nota;
 

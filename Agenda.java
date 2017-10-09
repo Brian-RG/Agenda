@@ -1,5 +1,7 @@
-
-package Principal;
+//Juan Carlos Quirino Carrasco - A01632369
+//Brian Reyes Gálvez - A01633401
+//Programacion orientada a objetos
+//Proyecto Parcial
 import java.awt.Dimension;
 import java.util.*;
 import javax.swing.JOptionPane;
@@ -83,12 +85,15 @@ public class Agenda {
   }
   public void buscarContacto (String myString) {
       String cont="";
-      
+  
     for (int i = 0; i < this.numContactos; i++) {
-      if (myString.equals("")) {cont+=this.contactos[i]+"\n \n"; }
+        //Variable r es para tener una numeracion mas amigable al usuario
+        int r = i + 1;
+      if (myString.equals("")) {cont+= r + "\n" + this.contactos[i]+"\n \n"; }
       else {
         if (this.contactos[i].contiene(myString)) {
-          cont+=this.contactos[i] + "\n \n";
+          cont+= r + "\n";
+          cont+= this.contactos[i] + "\n \n";
         }
       }
     }
@@ -98,31 +103,5 @@ public class Agenda {
         scrollPane.setPreferredSize( new Dimension( 500, 500 ) );
         JOptionPane.showMessageDialog(null, scrollPane,"Lista de contactos",JOptionPane.INFORMATION_MESSAGE);
     
-  }
-  public static void main(String[] args){
-    Agenda test = new Agenda();
-    //(String nom, String ape, String cat, String cor, String tel, String cel, String dir, String nota){
-    test.agregarContacto(new Contacto("AAA","Quirin","","","","","", ""));
-    test.agregarContacto(new Contacto("AAA","Quirinonososososo","","","","","", ""));
-    test.agregarContacto(new Contacto("AAA","Quirino","","","","","", ""));
-    test.agregarContacto(new Contacto("AAA","Quiri","","","","","", ""));
-
-
-
-    /*
-    test.agregarContacto(new Contacto("D","Quirino","","","","","", ""));
-    test.agregarContacto(new Contacto("C","C","","","","","", ""));
-    test.agregarContacto(new Contacto("B","Quirinos","","","","","", ""));
-    test.agregarContacto(new Contacto("AB","AAA","","","","","", ""));
-    test.agregarContacto(new Contacto("C","ABA","","","","","", ""));
-    test.agregarContacto(new Contacto("B","AAB","","","","","", ""));
-    test.agregarContacto(new Contacto("A","ABC","","","","","", ""));
-    test.agregarContacto(new Contacto("AC","AAA","","","","","", ""));
-    test.agregarContacto(new Contacto("A","X","","","","","", ""));
-    test.agregarContacto(new Contacto("BBB","BBB","","","","","", ""));
-    test.agregarContacto(new Contacto("A","G","","","","","", ""));
-    */
-    System.out.println(test.numContactos);
-    test.buscarContacto("quir");
   }
 }
