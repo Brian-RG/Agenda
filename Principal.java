@@ -51,10 +51,10 @@ public class Principal {
                     a.buscarContacto("");
                     try{
                     int o=Integer.parseInt(JOptionPane.showInputDialog(null,"Introduce el numero del contacto a borrar"));
-                    a.removerContacto(o);
+                        if (!a.removerContacto(o-1)) {throw new NumberFormatException("");}
                     }
                     catch(NumberFormatException e){
-                        JOptionPane.showMessageDialog(null,"Error, dato mal ingresado","Error",JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null,"Error al eliminar contacto, contacto no encontrado","Error",JOptionPane.ERROR_MESSAGE);
                     }
                     break;
                 case 3:
