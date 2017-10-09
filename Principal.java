@@ -7,17 +7,17 @@ package Principal;
 import javax.swing.*;
 
 public class Principal {
-    static String[] opciones={"Agregar contacto","Buscar contacto","Borrar contacto","Salir"};
-    static int opcion;
+    static String[] opciones={"Agregar contacto","Buscar contacto","Borrar contacto","Salir"}; //Crear las opciones para usar un for luego
+    static int opcion; //Para el case
     private static void imprimeMenu(){
-        opcion=JOptionPane.showOptionDialog(null,"Elige una opción:","Bienvenido!",JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE,null,opciones,opciones[0]);
+        opcion=JOptionPane.showOptionDialog(null,"Elige una opción:","Bienvenido!",JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE,null,opciones,opciones[0]); //Texto, Título 
     }
     
     private static Contacto pideContacto(){
         
-        String[] datos= {"Nombre:","Apellido:","Categoría:","Correo:","Teléfono:","Celular:","Dirección:","Nota:"};
+        String[] datos= {"Nombre:","Apellido:","Categoría:","Correo:","Teléfono:","Celular:","Dirección:","Nota:"}; 
         for(int i=0;i<datos.length;i++){
-            datos[i]=JOptionPane.showInputDialog(null,"Ingresa el "+datos[i]);
+            datos[i]=JOptionPane.showInputDialog(null,"Ingresa "+datos[i]); //Recorremos el for para mostrar las opciones y lo sobreescribimos para llamar al constructor
             
         }
         Contacto c= new Contacto(datos[0],datos[1],datos[2],datos[3],datos[4],datos[5],datos[6],datos[7]);
@@ -45,6 +45,7 @@ public class Principal {
                     a.buscarContacto("");
                     try{
                     int o=Integer.parseInt(JOptionPane.showInputDialog(null,"Introduce el numero del contacto a borrar"));
+                    a.removerContacto(o);
                     }
                     catch(NumberFormatException e){
                         JOptionPane.showMessageDialog(null,"Error, dato mal ingresado","Error",JOptionPane.ERROR_MESSAGE);
